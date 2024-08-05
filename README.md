@@ -14,17 +14,8 @@ You are given a Web application (SPA) using JavaScript. The application dynamica
 - **Guests (un-authenticated visitors)** can see the links to the All Books, as well as the links to the Login and Register pages.
 - **Logged-in users** see links to All Books page, My Books page, Add Book page, Welcome, {user's email address}, and a link for the Logout action.
 
-#### User navigation example:
-- ![User Navigation Example](path/to/user-navigation-example.png)
-
-#### Guest navigation example:
-- ![Guest Navigation Example](path/to/guest-navigation-example.png)
-
 #### Login User
-The included REST service comes with the following premade user accounts for development:
-- `{ "email": "peter@abv.bg", "password": "123456" }`
-- `{ "email": "john@abv.bg", "password": "123456" }`
-
+The included REST service comes with the following premade user accounts for development.
 The Login page contains a form for existing user authentication. By providing an email and password, the app logs a user into the system if there are no empty fields.
 
 #### Login Request
