@@ -10,7 +10,7 @@
 
 ## I. Writing Web UI Tests
 
-You are given a Web application (SPA) using JavaScript. The application dynamically displays content based on user interaction and supports user profiles and CRUD operations using a REST service.
+The Web application **"Book Library"** (SPA) is using JavaScript. The application dynamically displays content based on user interaction and supports user profiles and CRUD operations using a REST service.
 
 ### 1. Application Specifications
 
