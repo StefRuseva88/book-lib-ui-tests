@@ -25,13 +25,7 @@ The Login page contains a form for existing user authentication. By providing an
 #### Login Request
 - **Method**: POST
 - **URL**: /users/login
-- **Body**:
-    ```json
-    {
-      "email": "peter@abv.bg",
-      "password": "123456"
-    }
-    ```
+
 Upon success, the REST service returns an object with an automatically generated `_id` and a property `accessToken`, which contains the session token for the user. This information is stored using `sessionStorage` or `localStorage` for authenticated requests. Successful login redirects the user to the All Books/Dashboard page. If there is an error or the validations don't pass, it displays an error message using `window.alert`.
 
 #### Register User
@@ -40,13 +34,7 @@ The app registers a new user in the system by providing an email and password. A
 #### Register Request
 - **Method**: POST
 - **URL**: /users/register
-- **Body**:
-    ```json
-    {
-      "email": "peter@abv.bg",
-      "password": "123456"
-    }
-    ```
+
 Upon success, the REST service returns an object with an automatically generated `_id` and a property `accessToken`. Successful registration redirects the user to the All Books/Dashboard page. If there is an error or the validations don't pass, it displays an error message using `window.alert`.
 
 #### Logout
@@ -62,15 +50,7 @@ The Add Book page is available to logged-in users and contains a form for adding
 #### Add Book Request
 - **Method**: POST
 - **URL**: /data/books
-- **Body**:
-    ```json
-    {
-      "title": "Book Title",
-      "description": "Book Description",
-      "imageUrl": "http://example.com/book.jpg",
-      "type": "Fiction"
-    }
-    ```
+
 Upon success, the service returns the newly created record and redirects the user to the All Books/Dashboard page.
 
 #### All Books
@@ -93,15 +73,7 @@ Available to logged-in users, allowing authors to edit their own books. Checks i
 #### Edit Book Request
 - **Method**: PUT
 - **URL**: /data/books/:id
-- **Body**:
-    ```json
-    {
-      "title": "Updated Book Title",
-      "description": "Updated Book Description",
-      "imageUrl": "http://example.com/updated-book.jpg",
-      "type": "Fiction"
-    }
-    ```
+
 Upon success, the service returns the modified record and redirects the user to the Details page for the current book.
 
 #### Delete Book
@@ -124,12 +96,6 @@ Logged-in users can like other books but not their own. Clicking on the [Like] b
 #### Add Like Request
 - **Method**: POST
 - **URL**: /data/likes
-- **Body**:
-    ```json
-    {
-      "bookId": "desired-book-id"
-    }
-    ```
 
 #### Get Total Likes Count Request
 - **Method**: GET
