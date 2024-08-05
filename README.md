@@ -139,7 +139,28 @@ Logged-in users can like other books but not their own. Clicking on the [Like] b
 
 ## II. Preparing the Environment
 
-To initialize the SPA, execute the following commands in the Visual Studio Code terminal:
+- To initialize the SPA, execute the following commands in the Visual Studio Code terminal:
 
 ```bash
 npm install
+```
+This will install the Playwright framework and the http-server.
+
+- Then, start the server with the command:
+  
+```bash
+npm run start
+```
+A web browser should open, displaying the home page of the app.
+- Then, open another CLI and type this command:
+  
+```bash
+npm run start
+```
+- Create a new folder named tests and inside it, create a new file named `ui.test.js`. This file will contain the UI tests written using Playwright and `@playwright/test`.
+#### Running Playwright Tests
+
+To run the Playwright tests, open a new terminal in Visual Studio Code and execute the following command:
+```bash
+npm run test
+```
