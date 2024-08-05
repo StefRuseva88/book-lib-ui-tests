@@ -1,6 +1,8 @@
-# Exercise: Playwright
+# UI Testing with Playwright
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+[![Playwright](https://img.shields.io/badge/tested%20with-Playwright-6E40C9.svg)](https://playwright.dev/)
 
-Problems for exercises and homework for the "Front-End Test Automation" module @ SoftUni
+### This is a test project for Front-End Test Automation July 2024 Course @ SoftUni
 
 ---
 
