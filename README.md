@@ -155,7 +155,7 @@ A web browser should open, displaying the home page of the app.
 - Then, open another CLI and type this command:
   
 ```bash
-npm run start
+npm run server
 ```
 - Create a new folder named tests and inside it, create a new file named `ui.test.js`. This file will contain the UI tests written using Playwright and `@playwright/test`.
 #### Running Playwright Tests
