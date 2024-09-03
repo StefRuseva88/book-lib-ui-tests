@@ -1,7 +1,7 @@
 # UI Testing with Playwright
 
+[![JavaScript](https://img.shields.io/badge/Made%20with-JavaScript-F7DF1E.svg)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![Chromium](https://img.shields.io/badge/tested%20on-Chromium-4285F4.svg)](https://www.chromium.org/)
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 [![Playwright](https://img.shields.io/badge/tested%20with-Playwright-6E40C9.svg)](https://playwright.dev/)
 
 ### This is a test project for Front-End Technologies May 2024 Course @ SoftUni
