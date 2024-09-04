@@ -10,127 +10,83 @@
 
 ## I. Writing Web UI Tests
 
-The Web application **"Book Library"** (SPA) is using JavaScript. The application dynamically displays content based on user interaction and supports user profiles and CRUD operations using a REST service.
+The **"Book Library"** web application is a Single Page Application (SPA) built with JavaScript. It dynamically updates its content based on user interactions and supports user profiles along with CRUD operations through a RESTful service.
 
-### 1. Application Specifications
+### 1. Application Features
 
 #### Navigation Bar
-- **Guests (un-authenticated visitors)** can see the links to the All Books, as well as the links to the Login and Register pages.
-- **Logged-in users** see links to All Books page, My Books page, Add Book page, Welcome, {user's email address}, and a link for the Logout action.
+- **Guests (un-authenticated users)** can access links to All Books, Login, and Register pages.
+- **Authenticated** users can see links to All Books, My Books, Add Book, a welcome message with the user's email, and a Logout link.
 
-#### Login User
-The included REST service comes with the following premade user accounts for development.
-The Login page contains a form for existing user authentication. By providing an email and password, the app logs a user into the system if there are no empty fields.
+#### Login API Call
+The provided REST service includes pre-configured user accounts for testing purposes. The Login page features a form for authenticating existing users by entering an email and password. The app checks for empty fields before attempting to log in. If the login is successful, the REST service returns an object with a generated `_id` and an `accessToken` for the session. This token is saved in `sessionStorage` to authorize subsequent requests. Upon success, the user is redirected to the All Books/Dashboard page. If there’s an error or validation fails, an alert displays an error message.
 
-#### Login Request
-- **Method**: POST
-- **URL**: /users/login
+#### Register API Call
+New users can register by providing an email and password. All fields must be filled, or an error is shown. A successful registration returns an object with a generated `_id` and an `accessToken`. After registering, users are redirected to the All Books/Dashboard page. Errors or validation failures trigger an error alert.
 
-Upon success, the REST service returns an object with an automatically generated `_id` and a property `accessToken`, which contains the session token for the user. This information is stored using `sessionStorage` or `localStorage` for authenticated requests. Successful login redirects the user to the All Books/Dashboard page. If there is an error or the validations don't pass, it displays an error message using `window.alert`.
+#### Logout Functionality
+Available to authenticated users. Logging out redirects the user to the All Books/Dashboard page.
 
-#### Register User
-The app registers a new user in the system by providing an email and password. All fields are required; if any field is empty, the app displays an error.
-
-#### Register Request
-- **Method**: POST
-- **URL**: /users/register
-
-Upon success, the REST service returns an object with an automatically generated `_id` and a property `accessToken`. Successful registration redirects the user to the All Books/Dashboard page. If there is an error or the validations don't pass, it displays an error message using `window.alert`.
-
-#### Logout
-Available to logged-in users. Successful logout redirects the user to the All Books/Dashboard page.
-
-#### Logout Request
-- **Method**: GET
-- **URL**: /users/logout
-
-#### Add Book
-The Add Book page is available to logged-in users and contains a form for adding a new book. Checks if all fields are filled before sending the request.
-
-#### Add Book Request
-- **Method**: POST
-- **URL**: /data/books
-
-Upon success, the service returns the newly created record and redirects the user to the All Books/Dashboard page.
+#### Add Book API Call
+Logged-in users can access the Add Book page, which includes a form for creating a new book. The app checks that all fields are filled before submission. A successful addition returns the new book record and redirects the user to the All Books/Dashboard page.
 
 #### All Books
 This page displays a list of all books in the system. Clicking on the details button leads to the details page for the selected book. Visible to guests and logged-in users.
 
-#### Get All Books Request
-- **Method**: GET
-- **URL**: /data/books?sortBy=_createdOn%20desc
+#### Fetching All Books API Call
+The All Books page lists all books in the system. Both guests and logged-in users can access this page. Selecting a book takes the user to its details page.
 
-#### Book Details
-All users can view details about books. If the currently logged-in user is the creator, the [Edit] and [Delete] buttons are displayed; otherwise, they are not available.
+#### Fetching Book Details API Call
+All users can view detailed information about each book. Logged-in users who own the book see options to edit or delete it.
 
-#### Get Book Details Request
-- **Method**: GET
-- **URL**: /data/books/:id
+#### Editing a Book
+This feature allows logged-in users to edit their books. The app checks that all fields are filled before submission. A successful edit returns the updated book and redirects the user to its details page.
 
-#### Edit Book
-Available to logged-in users, allowing authors to edit their own books. Checks if all fields are filled before sending the request.
+#### Delete Book API Call
+Logged-in users can delete books they own. A confirmation prompt appears before deletion. Upon confirmation, the book is removed from the system, and the user is redirected to the All Books/Dashboard page.
 
-#### Edit Book Request
-- **Method**: PUT
-- **URL**: /data/books/:id
+#### Fetching My Books API Call
+Authenticated users can view a list of books they’ve added by clicking [My Books].
+- Method: GET
+- Endpoint: /data/books?where=_ownerId%3D%22{userId}%22&sortBy=_createdOn%20desc
 
-Upon success, the service returns the modified record and redirects the user to the Details page for the current book.
+#### Add Like API Call
+Authenticated users can like other users' books, but not their own. Clicking [Like] increases the book's like count by 1.
 
-#### Delete Book
-Available to logged-in users for books they have created. A confirmation dialog is displayed before deleting the book. Upon confirmation, the book is deleted from the system, and the user is redirected to the All Books/Dashboard page.
-
-#### Delete Book Request
-- **Method**: DELETE
-- **URL**: /data/books/:id
-
-#### My Books
-Logged-in users can view their own books by clicking [My Books]. Lists all books added by the current user.
-
-#### Get My Books Request
-- **Method**: GET
-- **URL**: /data/books?where=_ownerId%3D%22{userId}%22&sortBy=_createdOn%20desc
-
-#### Like a Book
-Logged-in users can like other books but not their own. Clicking on the [Like] button increases the book's counter by 1.
-
-#### Add Like Request
-- **Method**: POST
-- **URL**: /data/likes
-
-#### Get Total Likes Count Request
+#### Fetching Total Likes API Call
 - **Method**: GET
 - **URL**: /data/likes?where=bookId%3D%22{bookId}%22&distinct=_ownerId&count
 
-#### Get User Like Request
+#### Checking User's Likes API Call
 - **Method**: GET
 - **URL**: /data/likes?where=bookId%3D%22{bookId}%22%20and%20_ownerId%3D%22{userId}%22&count
 
 ---
 
 ## II. Preparing the Environment
-
-- To initialize the SPA, execute the following commands in the Visual Studio Code terminal:
+To initialize the SPA, run the following commands in the terminal within Visual Studio Code:
 
 ```bash
 npm install
 ```
-This will install the Playwright framework and the http-server.
+This command installs the Playwright framework and http-server.
 
-- Then, start the server with the command:
+- Start the server by running:
   
 ```bash
 npm run start
 ```
-A web browser should open, displaying the home page of the app.
-- Then, open another CLI and type this command:
+- This should open the app's homepage in a web browser.
+- Then, open a separate terminal and execute:
   
 ```bash
 npm run server
 ```
-- Create a new folder named tests and inside it, create a new file named `ui.test.js`. This file will contain the UI tests written using Playwright and `@playwright/test`.
+- Create a new folder named `tests`, and within it, create a file named `ui.test.js`. This file will contain the UI tests, written using Playwright and `@playwright/test`.
+  
 #### Running Playwright Tests
 
-To run the Playwright tests, open a new terminal in Visual Studio Code and execute the following command:
+To execute the Playwright tests, open a new terminal in Visual Studio Code and run:
 ```bash
 npm run test
 ```
