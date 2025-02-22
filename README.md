@@ -8,11 +8,11 @@
 
 ---
 
-## I. Writing Web UI Tests
+## Writing Web UI Tests
 
 The **"Book Library"** web application is a Single Page Application (SPA) built with JavaScript. It dynamically updates its content based on user interactions and supports user profiles along with CRUD operations through a RESTful service.
 
-### 1. Application Features
+### Application Features
 
 #### Navigation Bar
 - **Guests (un-authenticated users)** can access links to All Books, Login, and Register pages.
@@ -46,24 +46,24 @@ This feature allows logged-in users to edit their books. The app checks that all
 Logged-in users can delete books they own. A confirmation prompt appears before deletion. Upon confirmation, the book is removed from the system, and the user is redirected to the All Books/Dashboard page.
 
 #### Fetching My Books API Call
-Authenticated users can view a list of books they’ve added by clicking [My Books].
+Authenticated users can view a list of books they’ve added by clicking `[My Books]`.
 - Method: GET
-- Endpoint: /data/books?where=_ownerId%3D%22{userId}%22&sortBy=_createdOn%20desc
+- Endpoint: `/data/books?where=_ownerId%3D%22{userId}%22&sortBy=_createdOn%20desc`
 
 #### Add Like API Call
-Authenticated users can like other users' books, but not their own. Clicking [Like] increases the book's like count by 1.
+Authenticated users can like other users' books, but not their own. Clicking `[Like]` increases the book's like count by 1.
 
 #### Fetching Total Likes API Call
 - **Method**: GET
-- **URL**: /data/likes?where=bookId%3D%22{bookId}%22&distinct=_ownerId&count
+- **URL**: `/data/likes?where=bookId%3D%22{bookId}%22&distinct=_ownerId&count`
 
 #### Checking User's Likes API Call
 - **Method**: GET
-- **URL**: /data/likes?where=bookId%3D%22{bookId}%22%20and%20_ownerId%3D%22{userId}%22&count
+- **URL**: `/data/likes?where=bookId%3D%22{bookId}%22%20and%20_ownerId%3D%22{userId}%22&count`
 
 ---
 
-## II. Preparing the Environment
+## Preparing the Environment
 To initialize the SPA, run the following commands in the terminal within Visual Studio Code:
 
 ```bash
