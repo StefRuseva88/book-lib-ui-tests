@@ -5,6 +5,8 @@
 [![Playwright](https://img.shields.io/badge/tested%20with-Playwright-6E40C9.svg)](https://playwright.dev/)
 
 ### This is a test project for Front-End Technologies May 2024 Course @ SoftUni
+---
+
 ## Writing Web UI Tests
 
 The **"Book Library"** web application is a Single Page Application (SPA) built with JavaScript. It dynamically updates its content based on user interactions and supports user profiles along with CRUD operations through a RESTful service.
