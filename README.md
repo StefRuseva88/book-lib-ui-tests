@@ -8,12 +8,9 @@
 ---
 
 ## Writing Web UI Tests
-
 The **"Book Library"** web application is a Single Page Application (SPA) built with JavaScript. It dynamically updates its content based on user interactions and supports user profiles along with CRUD operations through a RESTful service.
 
-
 ## Application Features
-
 ### Navigation Bar
 - **Guests (un-authenticated users)** can access links to All Books, Login, and Register pages.
 - **Authenticated** users can see links to All Books, My Books, Add Book, a welcome message with the user's email, and a Logout link.
@@ -60,8 +57,6 @@ Authenticated users can like other users' books, but not their own. Clicking `[L
 ### Checking User's Likes API Call
 - **Method**: GET
 - **URL**: `/data/likes?where=bookId%3D%22{bookId}%22%20and%20_ownerId%3D%22{userId}%22&count`
-
----
 
 ## Preparing the Environment
 To initialize the SPA, run the following commands in the terminal within Visual Studio Code:
