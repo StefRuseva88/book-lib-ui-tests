@@ -12,6 +12,8 @@
 
 The **"Book Library"** web application is a Single Page Application (SPA) built with JavaScript. It dynamically updates its content based on user interactions and supports user profiles along with CRUD operations through a RESTful service.
 
+--- 
+
 ## Application Features
 
 ### Navigation Bar
